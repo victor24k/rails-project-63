@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 module HexletCode
+  # Contains functionality for HTML tags generation.
   module Tag
     @void_elements = %w[area base br col embed hr img input link meta source track wbr]
 
