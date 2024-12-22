@@ -1,11 +1,27 @@
 # frozen_string_literal: true
 
-module HexletCode # rubocop:disable Style/Documentation
-  def self.form_for(_user, attributes = {})
-    attrs = { action: nil, method: "post" }
-    attrs[:action] = attributes.delete(:url) || "#"
-    attrs.merge!(attributes)
+require_relative "html"
 
-    Tag.build("form", attrs)
+module HexletCode
+  # A form element to which you can pass ROPO and access the data in child elements.
+  class Form < Html::Element
+    def initialize(data, attributes)
+      @data = data
+      super("form", attributes)
+    end
+
+    def input(name, options = {})
+      as = options.delete(:as)
+      return textarea(name, options) if as == :text
+
+      attributes = { name:, type: "text", value: @data[name] }.merge(options)
+      @children << Html::Element.new(__method__.to_s, attributes)
+    end
+
+    def textarea(name, options = {})
+      default_attributes = { name:, cols: 20, rows: 40 }
+      attributes = default_attributes.merge(options)
+      @children << Html::Element.new(__method__.to_s, attributes) { @data[name] }
+    end
   end
 end

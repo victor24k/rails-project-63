@@ -3,9 +3,7 @@
 
 # HexletCode
 
-TODO: Delete this and the text below, and describe your gem
-
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/hexlet_code`. To experiment with that code, run `bin/console` for an interactive prompt.
+A simple HTML forms generator implemented in Ruby.
 
 ## Installation
 
@@ -25,7 +23,27 @@ gem install UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG
 
 ## Usage
 
-TODO: Write usage instructions here
+Lets suppose you have the following user object which you want to use inside the form:
+```Ruby
+User = Struct.new(:name, :job, :gender, keyword_init: true)
+bob = User.new(name: "Bob", job: "Unemployeed", gender: "Male")
+```
+You can create the form like this:
+```Ruby
+form = HexletCode.form_for user do |f|
+  f.input :name
+  f.input :gender
+  f.input :job, as: :text
+end
+```
+This will create the `Form` object with two `<input>` `Element`s inside. In order to get a string representation of the form you can either call the `Form.to_s` method manually or use the form as if it was a string, which will result in the following HTML:
+```HTML
+<form action="#" method="post">
+    <input name="name" type="text" value="Bob">
+    <input name="gender" type="text" value="Male">
+    <textarea name="job" cols="20" rows="40">Unemployeed</textarea>
+</form>
+```
 
 ## Development
 
