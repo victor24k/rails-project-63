@@ -15,6 +15,6 @@ module HexletCode
     form = Form.new(data, ordered_attributes)
     add_children&.call(form)
 
-    form
+    form.to_s
   end
 end
