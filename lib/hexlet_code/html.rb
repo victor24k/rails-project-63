@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require_relative "html/element"
-require_relative "html/indentation"
+require_relative 'html/element'
+require_relative 'html/indentation'
 
 module HexletCode
   # Contains functionality for building HTML elements.
@@ -17,21 +17,21 @@ module HexletCode
     def self.build_attributes(attributes)
       attributes
         .map { |(name, value)| "#{name}=\"#{value}\"" }
-        .join(" ")
+        .join(' ')
     end
 
     def self.build_opening_tag(element, indentation)
       attributes = build_attributes(element.attributes)
 
       if attributes.empty?
-        [indentation, "<", element.name, ">"].join
+        [indentation, '<', element.name, '>'].join
       else
-        [indentation, "<", element.name, " ", attributes, ">"].join
+        [indentation, '<', element.name, ' ', attributes, '>'].join
       end
     end
 
     def self.build_closing_tag(element, indentation = nil)
-      [indentation, "</", element.name, ">"].join
+      [indentation, '</', element.name, '>'].join
     end
 
     def self.build_singleline_element(element, child, indentation)

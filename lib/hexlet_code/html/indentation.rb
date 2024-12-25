@@ -5,7 +5,7 @@ module HexletCode
     # Utility class that makes it a little bit easier to track the indendation inside the HTML elements and
     # modify whitespace and indentation step if needed.
     class Indentation
-      def initialize(size = 0, whitespace = " ", step = 4)
+      def initialize(size = 0, whitespace = ' ', step = 4)
         @size = size
         @whitespace = whitespace
         @step = step

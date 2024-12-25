@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
-require "test_helper"
+require 'test_helper'
 
 class TestHexletCode < Minitest::Test
   User = Struct.new(:name, :job, :gender, keyword_init: true)
 
   def setup
-    @user = User.new(name: "rob", job: "hexlet", gender: "m")
+    @user = User.new(name: 'rob', job: 'hexlet', gender: 'm')
   end
 
   def test_that_it_has_a_version_number
@@ -21,19 +21,19 @@ class TestHexletCode < Minitest::Test
 
   def test_it_adds_class_attribute
     expected = '<form action="#" method="post" class="hexlet-form"></form>'
-    generated = HexletCode.form_for(@user, class: "hexlet-form")
+    generated = HexletCode.form_for(@user, class: 'hexlet-form')
     assert_equal(expected, generated)
   end
 
   def test_it_adds_url_attribute
     expected = '<form action="/profile" method="post"></form>'
-    generated = HexletCode.form_for(@user, url: "/profile")
+    generated = HexletCode.form_for(@user, url: '/profile')
     assert_equal(expected, generated)
   end
 
   def test_it_adds_multiple_attributes
     expected = '<form action="/profile" method="post" class="hexlet-form"></form>'
-    generated = HexletCode.form_for(@user, url: "/profile", class: "hexlet-form")
+    generated = HexletCode.form_for(@user, url: '/profile', class: 'hexlet-form')
     assert_equal(expected, generated)
   end
 
