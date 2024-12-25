@@ -16,16 +16,15 @@ module HexletCode
 
       default_attributes = { name:, type: 'text', value: @data.public_send(name) }
       attributes = default_attributes.merge(options)
-      # @children << Html::Element.new("label", for: name) { name.to_s.capitalize }
       label(for: name, text: name.to_s.capitalize)
-      @children << Html::Element.new(__method__.to_s, attributes)
+      @children << Html::Element.new('input', attributes)
     end
 
     def textarea(name, options = {})
       default_attributes = { name:, cols: 20, rows: 40 }
       attributes = default_attributes.merge(options)
       label(for: name, text: name.to_s.capitalize)
-      @children << Html::Element.new(__method__.to_s, attributes) { @data.public_send(name) }
+      @children << Html::Element.new('textarea', attributes) { @data.public_send(name) }
     end
 
     def label(options = {})
