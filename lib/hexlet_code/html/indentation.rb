@@ -2,8 +2,9 @@
 
 module HexletCode
   module Html
-    # Utility class that makes it a little bit easier to track the indendation inside the HTML elements and
-    # modify whitespace and indentation step if needed.
+    # An utility class that makes it easier to track the indendation inside the HTML elements and
+    # modify whitespace and indentation step as needed. Primarily used inside Html.build method when
+    # recursively building an HTML element.
     class Indentation
       def initialize(size = 0, whitespace = ' ', step = 4)
         @size = size

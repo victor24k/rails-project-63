@@ -2,7 +2,8 @@
 
 module HexletCode
   module Html
-    # An ordinary HTML element that can have other elements inside it.
+    # Represents an HTML element that can have attributes and can contain other elements and/or text inside.
+    # Content must be passed inside a block.
     class Element
       attr_reader :name, :attributes, :children
 
@@ -13,7 +14,7 @@ module HexletCode
       end
 
       def to_s
-        @to_s ||= HexletCode::Html.build_element_recursively(self, Indentation.new)
+        @to_s ||= Html.build(self, Indentation.new)
       end
     end
   end

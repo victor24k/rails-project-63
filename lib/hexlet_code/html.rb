@@ -51,10 +51,10 @@ module HexletCode
       [opening_tag, content, closing_tag].join("\n")
     end
 
-    def self.build_element_recursively(element, indentation)
+    def self.build(element, indentation)
       return element if element.is_a?(String)
 
-      children = element.children.map { |child| build_element_recursively(child, indentation.increased) }
+      children = element.children.map { |child| build(child, indentation.increased) }
 
       if element.children.count.zero? || (element.children.count == 1 && element.children.first.is_a?(String))
         build_singleline_element(element, children, indentation)
