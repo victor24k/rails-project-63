@@ -24,6 +24,7 @@ module HexletCode
     def textarea(name, options = {})
       default_attributes = { name:, cols: 20, rows: 40 }
       attributes = default_attributes.merge(options)
+      label(for: name, text: name.to_s.capitalize)
       @children << Html::Element.new(__method__.to_s, attributes) { @data.public_send(name) }
     end
 
