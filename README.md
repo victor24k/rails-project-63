@@ -3,7 +3,7 @@
 
 # HexletCode
 
-A simple HTML forms generator implemented in Ruby.
+Simple HTML forms generator.
 
 ## Installation
 
@@ -30,17 +30,20 @@ bob = User.new(name: "Bob", job: "Unemployeed", gender: "Male")
 ```
 You can create the form like this:
 ```Ruby
-form = HexletCode.form_for user do |f|
+form = HexletCode.form_for bob do |f|
   f.input :name
   f.input :gender
   f.input :job, as: :text
 end
 ```
-This will create the `Form` object with two `<input>` `Element`s inside. In order to get a string representation of the form you can either call the `Form.to_s` method manually or use the form as if it was a string, which will result in the following HTML:
+This will produce the following HTML code:
 ```HTML
 <form action="#" method="post">
+    <label for="name">Name</label>
     <input name="name" type="text" value="Bob">
+    <label for="gender">Gender</label>
     <input name="gender" type="text" value="Male">
+    <label for="job">Job</label>
     <textarea name="job" cols="20" rows="40">Unemployeed</textarea>
 </form>
 ```

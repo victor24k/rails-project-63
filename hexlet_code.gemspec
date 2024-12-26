@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
   spec.authors = ['victor24k']
   spec.email = ['-']
 
-  spec.summary = "Even more simple version of Rails' SimpleForm."
+  spec.summary = '# Simple HTML forms generator.'
   spec.homepage = 'https://github.com/victor24k/rails-project-63'
   spec.license = 'MIT'
   spec.required_ruby_version = '>= 3.1.0'

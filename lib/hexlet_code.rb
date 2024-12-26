@@ -3,7 +3,7 @@
 require_relative 'hexlet_code/version'
 require_relative 'hexlet_code/form'
 
-# Implementation of simple HTML forms generator.
+# Simple HTML forms generator.
 module HexletCode
   autoload :Html, 'hexlet_code/html'
 
