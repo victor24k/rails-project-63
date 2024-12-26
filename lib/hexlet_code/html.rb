@@ -4,7 +4,7 @@ require_relative 'html/element'
 require_relative 'html/indentation'
 
 module HexletCode
-  # Contains functionality for building HTML elements.
+  # Contains functionality for building HTML elements which may be deeply nested.
   module Html
     @void_elements = %w[area base br col embed hr img input link meta source track wbr]
 

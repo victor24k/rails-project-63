@@ -7,13 +7,13 @@ require_relative 'hexlet_code/form'
 module HexletCode
   autoload :Html, 'hexlet_code/html'
 
-  def self.form_for(data, attributes = {}, &add_children)
+  def self.form_for(data, attributes = {}, &populate_children)
     ordered_attributes = { action: nil, method: 'post' }
     ordered_attributes[:action] = attributes.delete(:url) || '#'
     ordered_attributes.merge!(attributes)
 
     form = Form.new(data, ordered_attributes)
-    add_children&.call(form)
+    populate_children&.call(form)
 
     form.to_s
   end
